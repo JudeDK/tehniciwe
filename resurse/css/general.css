@@ -1,0 +1,613 @@
+@import "video.css";
+@import "nav.css";
+@import "orar.css";
+@import "faq.css";
+@import "galerie-statica.css";
+@import "galerie-statica-500.css";
+@import "calendar.css";
+
+/* va rog urmariti comentariile pe care le-am adaugat pentru voi*/
+/* acesta este stilul pentru ecran mare*/
+
+html{
+    /*am setat font-size-ul radacinii; unitatile in rem vor fi relative la acest font-size*/
+    font-size:16px;
+    
+
+}
+
+body{
+    --culoare1:aqua;
+    --culoare2:#379BDE;
+    --culoare3:#6723DB;
+    --culoare4:#6B8BDB;
+    --culoare-inchisa:#2923DB;
+    --culoare-deschisa:#4BD2DE;
+    --culoare-text:black;
+    --culoare-text-selectat:white;
+  
+    --spatiere:50px;
+    padding-left:var(--spatiere);
+    padding-right:var(--spatiere);
+    margin-left:10px;
+    margin-right:10px;
+      
+    margin-top:0;
+    margin-bottom:0;
+    --body-padding:3rem;
+
+    --padding-intern:4%;
+    color:var(--cl-text);
+
+    background: 
+    linear-gradient(to bottom, var(--culoare-inchisa), white 50%, transparent 50%),
+    linear-gradient(to top, var(--culoare-inchisa), white 50%, transparent 50%);
+
+    background-repeat: no-repeat;
+
+    /* background-ul va ramane fix cand dam scroll*/
+    background-attachment: fixed;
+
+  
+    min-width:330px;/*latimea minima trebuie sa fie mai mica decat orice latime de dispozitiv pentru a nu avea scroll orizontal*/
+}
+
+ 
+#grid-pagina{
+    display: grid;
+    gap: 10px;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-areas:"welcome welcome welcome welcome"
+                        "welcome welcome welcome welcome"
+                        "utilizatori statistici statistici site"
+                        "evenimente evenimente tabel tabel"
+                        "anunturi anunturi tabel tabel"
+                        "diverse diverse diverse diverse";
+}
+#grid-pagina > *{
+        border: 3px solid var(--culoare-text);
+        border-radius: 10px;
+        background-color: var(--culoare-deschisa);
+        padding: 1em;
+    }
+    
+    #welcome {
+        grid-area: welcome;
+    }
+    
+    #utilizatori {
+        grid-area: utilizatori;
+    }
+    
+    #statistici {
+        grid-area: statistici;
+    }
+    
+    #site {
+        grid-area: site;
+    }
+    
+    #evenimente {
+        grid-area: evenimente;
+    }
+    
+    #tabel {
+        grid-area: tabel;
+    }
+    
+    #anunturi {
+        grid-area: anunturi;
+    }
+    
+    #diverse {
+        grid-area: diverse;
+    }
+    
+    
+    @media screen and (max-width:1200px){
+    
+        html{
+            font-size: 1em;
+            transition: all 1s linear;
+        }
+    
+        #grid-pagina{
+            grid-template-columns: repeat(3,1fr);
+            grid-template-areas:"welcome welcome welcome"
+                                "welcome welcome welcome"
+                                "utilizatori statistici site"
+                                "evenimente tabel tabel"
+                                "anunturi tabel tabel"
+                                "diverse diverse diverse";
+        }
+    }
+    
+    @media screen and (max-width:800px){
+        #grid-pagina{
+            display:block;
+        }
+        html{
+            font-size: 0.9em;
+            transition: all 1s linear;
+        }
+       
+}
+
+figcaption{
+    text-align:center;
+}
+
+p.intro{
+    font-family: 'Dancing Script', cursive;
+    font-size:2rem;
+    /*text-align: justify;
+    text-align-last: justify;*/
+    font-weight: bold;
+}
+
+#dv-prezentare{
+    
+    mask-repeat: no-repeat;
+    /*mask-position:10% 0, 0 50%;*/
+    mask-size:100% 100%;
+   
+    mask-image: linear-gradient(transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(transparent, black 10%, black 90%, transparent);
+    background-attachment: fixed;
+}
+#dv-prezentare img{
+    width:100%;
+}
+
+#dv-prezentare-1{
+    float:right;
+    mask-image: linear-gradient(to left,transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to left,transparent, black 10%, black 90%, transparent);
+    width:35%;
+    
+}
+
+
+#welcome .anunt{
+    font-family: 'Dancing Script', cursive;
+    width:45%;
+    font-size:1.4rem;
+    float:left;
+    margin-top:0;
+}
+.intro-oferte{
+    display: flex;
+    min-height:50px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+.intro-oferte div{
+    border:1px solid grey;
+    width:7rem;
+    margin-right:2rem;
+    line-height:50px;
+
+    /*am folosit fontul din Google API*/
+    font-family: 'Dancing Script', cursive;
+    font-size:1.5rem;
+    text-align: center;
+}
+
+#produse section{
+    border-image:none;
+    border-width: 1px;
+    border-style:solid;
+    border-color:var(--culoare-roz-inchis);
+    border-radius:1.5rem;
+    margin-bottom:0.7rem;
+    box-shadow:0px 0px 7px 2px var(--culoare-roz-inchis);;
+}
+
+#retete{
+    
+  padding-left:var(--padding-intern);
+  padding-right:var(--padding-intern);
+}
+
+
+footer{
+    background-color: var(--culoare-deschisa);
+    border: 4px solid var(--culoare-text);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+}
+header{
+    background-color: var(--culoare-deschisa);
+    border: 4px solid var(--culoare-text);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 5px;
+
+}
+
+#link-top{
+    position:fixed;
+    bottom:0.3em;
+    opacity:0.5;
+    left:0.3em;
+    width:3rem;
+    box-sizing: border-box;
+    height:3rem;
+    line-height:3rem;
+    text-align:center;
+    border:5px solid var(--culoare4);
+    border-top-color:var(--culoare3);
+    border-radius:50%;
+    background: var(--culoare-text-selectat);
+    
+  }
+  
+  #triunghi{
+    height: 15px;
+    width:0;
+    display:inline-block;
+    border-bottom:1.5rem solid var(--culoare-text);
+    border-left:1rem solid transparent;
+    border-right:1rem solid transparent;
+    vertical-align: top;
+    transform: translateY(20%);
+
+  
+  }
+  #link-top:hover>#triunghi{
+    opacity:1;
+    transform: translateY(-40%);
+    transition: all 1s linear;
+    border-bottom:1.5rem solid orange;
+  }
+  #link-top>#triunghi:hover{
+    opacity:1;
+    transform: translateY(-40%);
+    transition: all 1s linear;
+    border-bottom:1.5rem solid orange;
+  }
+  #tabel {
+    border-spacing: 0px; /* Elimină spațiile dintre celulele tabelului */
+    border-collapse: collapse; /* Fuzionează bordurile celulelor tabelului */
+}
+
+#tabel th, #tabel td {
+    border: 3px solid var(--culoare-text); /* boarder tabel*/
+}
+
+#tabel th:nth-child(2n) {
+    background-color: var(--culoare3); /* culoare celule pare header*/
+}
+
+#tabel th:nth-child(2n) + th,
+#tabel td:nth-child(2n) + td {
+    border-right-color: var(--culoare1); /*schimba culoarea boarderului urmator care se afla pe o celula para */
+}
+
+#tabel th:nth-child(2n+1) + th,
+#tabel td:nth-child(2n+1) + td {
+    border-right-color: var(--culoare2); /* schimba culoarea boarderului urmator care se afla pe o celula impara */
+}
+
+#tabel thead th,
+#tabel tfoot th,
+#tabel tbody td {
+    border: 2px solid var(--culoare-text); /* Setează o bordură de 2px solidă folosind variabila CSS --culoare-text pentru toate celulele header din thead și tfoot, și pentru toate celulele din tbody */
+}
+
+#tabel thead th:first-child,
+#tabel tbody tr:last-child td,
+#tabel tbody tr:nth-last-child(2) td {
+    border-bottom-width: 4px; /* Setează lățimea bordurii de jos la 4px pentru prima celulă header din thead, pentru celulele din ultimul rând și penultimul rând din tbody */
+}
+
+#tabel thead th,
+#tabel tbody tr:first-child td,
+#tabel tfoot th {
+    border-top-width: 4px; 
+}
+
+#tabel th:hover {
+    color: var(--culoare2); 
+    background-color: var(--culoare-text-selectat); 
+    border: 5px solid var(--culoare-text); 
+    transition: all 1s linear; /* Adaugă o tranziție liniară de 0.5 secunde pentru toate proprietățile când celula header este hoverată */
+}
+
+#tabel tr:hover {
+    color: var(--culoare-inchisa); 
+    background-color: var(--culoare-text-selectat);
+    border: 5px solid var(--culoare-text); 
+    transition: all 1s linear; /* Adaugă o tranziție liniară de 0.5 secunde pentru toate proprietățile când un rând este hoverat */
+}
+
+  
+  @media screen and (max-width:1200px)
+  {
+    #tabeloroar{
+      overflow-x:auto;
+      max-width:250px;
+    }
+  }
+  @media screen and (max-width:800px)
+  {
+    #tabeloroar{
+      overflow-x:auto;
+      max-width:250px;
+    }
+  }
+  .container-iframe{
+      display: flex;
+      flex-direction:row-reverse;
+      margin-left:auto;
+      margin-right:auto;
+      width:50%;
+  }
+  .container-iframe iframe{
+    width:100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .taburi-iframe{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .taburi-iframe>a{
+      display:block;
+      transition: all 1s linear;
+      margin-left:2px;
+      border: 2px solid var(--culoare3);
+      border-radius: 3px;
+      background-color: var(--culoare4);
+      text-decoration:none;
+      padding:3px;
+      color:var(--culoare3);
+
+    text-align: center;
+    }
+  .taburi-iframe>a:hover{
+      padding-left:25px;
+      background-color: var(--culoare-deschisa);
+    }
+      
+    footer a[href^="mailto"]::before {
+      content: "⮳";
+      margin-right: 5px;
+      font-size: 1.5em; /* 50% larger than normal text */
+      color: red;
+      transition: color 0.3s;
+  }
+  
+  footer a[href^="tel"]::before {
+      content: "📞";
+      margin-right: 5px;
+      font-size: 1.5em; /* 50% larger than normal text */
+      color: red;
+      transition: color 0.3s;
+  }
+  
+  footer a:visited {
+      color: var(--culoare3);
+  }
+  
+  footer a:hover {
+    background-image: radial-gradient(ellipse, var(--culoare4) 0%, var(--culoare4) 40%, transparent 80%, transparent 100%);
+    background-size: 0% 0%; 
+    background-position: center;
+    transition:  1s ease; 
+    background-size: 100% 100%;
+      z-index: -1;
+  }
+  
+  footer a:hover::after {
+      background-size: 100%; /* Asigură-te că efectul de fundal se aplică */
+  }
+  
+  footer a:active {
+      border: 1px solid var(--culoare-text);
+  }
+  
+
+
+body.dark {
+    background-color: #00011f; 
+    color: #696880; /* Set the text color to white */
+    
+  
+    padding-left: var(--spatiere);
+    padding-right: var(--spatiere);
+  }
+  
+  /* You might also need to style specific elements */
+  body.dark h1,
+  body.dark p,
+  body.dark ul,
+  body.dark li,
+  body.dark a {
+    color:white; /* Set the text color to white for these elements */
+  }
+  
+  body.dark nav a {
+    color: rgb(255, 255, 255); /* Set link color to purple */
+  }
+  
+  /* Toggle Button Styles */
+  .toggle-container {
+    display: inline-block;
+  }
+  
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin: 10px;
+  }
+  
+  .toggle input[type="checkbox"] {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  .toggle input:checked + .slider {
+    background-color: black; /* Change background color for checked state */
+  }
+  
+  .toggle input:checked + .slider:before {
+    transform: translateX(30px);
+  }
+  
+  /* Icon Styles */
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .icons i {
+    color: green; /* Set icon color to white */
+    margin: 5px;
+    transition: transform 0.4s ease;
+  }
+  
+  .toggle input:checked + .slider .fa-sun {
+    transform: translateY(3px);
+  }
+  
+  .toggle input:checked + .slider .fa-moon {
+    transform: translateY(-3px);
+  }
+  
+  /* Dark Mode Styles */
+  body.dark {
+  
+    color: #696880; /* Set the text color to white */
+  }
+  
+  body.dark a {
+    color: dark(215, 38, 215); /* Set link color to purple */
+  }
+  
+  body.dark .toggle input:checked + .slider {
+    background-color: #777;
+  }
+  
+  body.dark .toggle input:checked + .slider:before {
+    background-color: #ccc;
+  }
+  
+  .val-nume a {
+    color: purple;
+  }
+  
+  /*text reflectat*/
+#container {
+    position: relative;
+    display: inline-block;
+  }
+  
+#text {
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    transform: rotate(-35deg) skewX(-30deg); /* Rotirea textului cu -45 de grade */
+    position: relative;
+    transition: color 1s ease; 
+  }
+  
+  #text-reflectat {
+    position: absolute;
+    right: 100; /* Plasăm reflexia în partea dreaptă */
+    top: -31px;
+    transform-origin: bottom right; /* Schimbăm originea transformării pentru a reflecta în partea dreaptă */
+    /* Conetăm ordinea transformărilor! */
+    transform: rotate(35deg) scaleY(1) skewX(30deg) rotateY(180deg);
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    transition: color 1s ease; 
+  }
+  
+  #container:hover #text,
+  #container:hover #text-reflectat {
+    color: blue; /* Schimbăm culoarea la hover */
+   
+  }
+
+  /*stilizare duotone*/
+  #imagine-duotone {
+    position: relative;
+    background-image:url("http://irinaciocan.ro/imagini/plante.jpg");
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    filter: brightness(200%) grayscale(0);
+    border-radius: 30px;
+    box-shadow: 5px 0px 20px black;
+    margin-bottom: 10px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#imagine-duotone:after,
+#imagine-duotone:before {
+    content: " ";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 30px;
+    transition: all 2s linear;
+}
+
+#imagine-duotone:after {
+    background-color: purple;
+    mix-blend-mode: darken;
+}
+
+#imagine-duotone:before {
+    background-color: var(--culoare-deschisa);
+    mix-blend-mode: lighten;
+}
+
+#imagine-duotone:hover:after {
+    background-color: yellow;
+    mix-blend-mode: darken;
+}
+#imagine-duotone:hover:before {
+    background-color:darkblue; 
+    mix-blend-mode: lighten;
+}
+
+input.login{
+  width:140px;
+}
+

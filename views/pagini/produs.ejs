@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="keywords" content="ETelefon, Telefon, Apple, Android, Huawei, Bucuresti, Romania, performanta, livrare la domiciliu, ridicare personala, Husa, Casti,  Incarcatoare, Folie de telefon">
+        <meta name="description" content="ETelefon va ofera cele mai noi si performante telefoane la cele mai ieftine preturi! De la noi puteti sa luati si accesoriile dorite!">
+        <title>ETelefon - Acasa</title>
+        <%- include("../fragmente/head") %>     
+        <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <section>
+            <h2>Pagină produs</h2>
+                <article id="art-produs">
+                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                    <p>Specificatii: <span class="specificatii"><%- locals.prod.specificatii %> </span></p>
+                    <p>Memorie: <span class="memorie"><%- locals.prod.memorie %> </span></p>
+                    <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
+                    <p>Brand: <span class="categorie"><%- locals.prod.brand %> </span></p>
+                    <p>Resigilate: <span class="Resigilate"><%- locals.prod.Resigilate %> </span></p>
+                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                    <figure class="imag-produs">
+                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                    </figure>    
+                </article>
+            
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="keywords" content="ETelefon, Telefon, Apple, Android, Huawei, Bucuresti, Romania, performanta, livrare la domiciliu, ridicare personala, Husa, Casti,  Incarcatoare, Folie de telefon">
+        <meta name="description" content="ETelefon va ofera cele mai noi si performante telefoane la cele mai ieftine preturi! De la noi puteti sa luati si accesoriile dorite!">
+        <title>ETelefon - eroare </title>
+        <link rel="stylesheet" type="text/css" href="/resurse/css/eroare.css"
+        <%- include("../fragmente/head.ejs");  %> 
+
+
+    </head>
+    <body>
+        
+    <%- include("../fragmente/header.ejs");  %> 
+
+    <main>
+        <div id="err-coloane">
+			<div id="err-imag">
+				<img src="<%- locals.imagine %>" />
+			</div>
+			<section>
+				<h2><%- locals.titlu %></h2>
+				<p><%- locals.text %></p>
+			</section>
+		</div>
+    </main>
+    
+    <%- include("../fragmente/footer.ejs");  %> 
+
+
+    </body>
+</html>

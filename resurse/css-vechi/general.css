@@ -1,0 +1,110 @@
+
+html{
+    font-size:18px;
+}
+
+
+body{
+    --culoare-mov:#C886FF;
+    --roz-deschis:rgb(255,219,235);
+    --culoare-fundal:rgb(255,219,235);
+    --culoare-fundal-inchis:#C886FF;
+    --culoare-text:black;
+    --spatiere-pagina:50px;
+    --padding-sectiune:15px;
+}
+
+body.dark{
+    --culoare-fundal:black;
+    --culoare-text:white;
+}
+
+
+
+body{
+    background-color: var(--culoare-fundal);
+    color:var(--culoare-text);
+    padding-left:var(--spatiere-pagina);
+    padding-right:var(--spatiere-pagina);
+    min-width:450px;
+    margin:0;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+
+h2{
+    font-size: 2rem;
+}
+
+
+
+#grid-pagina > *{
+    border: 3px solid green;
+    padding:var(--padding-sectiune);
+}
+#grid-pagina{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+        "z-index-intrebari z-index-intrebari z-index-intrebari"
+    
+                        "z-produse z-produse z-promotii"
+                        "z-fig1 z-orar z-orar"
+                        "z-fig2 z-orar z-orar"
+                        "z-fig3 z-orar z-orar"
+                        "z-anunturi z-anunturi z-anunturi"
+                        "z-welcome z-welcome z-welcome"
+                        ;
+    gap:20px 10px;
+    /*
+    grid-row-gap
+    grid-column-gap
+    */
+}
+
+#welcome{
+    grid-area: z-welcome;
+}
+#promotii{
+    grid-area: z-promotii;
+}
+#produse{
+    grid-area: z-produse;
+}
+
+#orar{
+    grid-area: z-orar;
+}
+
+#fig1{
+    grid-area: z-fig1;
+}
+#fig2{
+    grid-area: z-fig2;
+}
+#fig3{
+    grid-area: z-fig3;
+}
+
+#anunturi{
+    grid-area: z-anunturi;
+}
+
+#index-intrebari{
+    grid-area: z-index-intrebari;
+}
+
+
+
+img{
+    width:100%;
+    max-width:700px;
+}
+
+
+main{
+    margin-top:100px;
+}
