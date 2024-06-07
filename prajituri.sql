@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS prajituri (
 
 
 INSERT into prajituri (nume,descriere,pret, memorie, culori, TIP_TELEFON, brand, specificatii, resigilare, imagine) VALUES 
-('Samsung Galaxy A35', 'Telefon Samsung Galaxy A35 5G,128GB,6GB RAM, Dual SIM, Awesome Navy', 1350 , 128, 'Negru', 'Smartphone','Samsung','{"Sim: Nano SIM + eSIM","Retea 2G :  GSM850, GSM900, DCS1800,PCS1900","RETEA: 5G","Sistem de operare: Android","Procesor: Exynos 1280"}', False, 'Samsung Galaxy A35.jpeg'),
-('Samsung Galaxy A55', 'Telefon SAMSUNG Galaxy A55 5G, 128GB, 8GB RAM, Dual SIM, Awesome Navy', 2000 , 128, 'Negru', 'Smartphone','Samsung','{"Sim: Nano SIM + eSIM","Retea 2G :  GSM850, GSM900, DCS1800,PCS1900","RETEA: 5G","Sistem de operare: Android","Procesor: Exinos 1480"}', False, 'Samsung Galaxy A.jpeg'),
+('Samsung Galaxy A35', 'Telefon Samsung Galaxy A35 5G,128GB,6GB RAM, Dual SIM, Awesome Navy', 1350 , 128, 'Negru', 'Smartphone','Samsung','{"Sim: Nano SIM + eSIM","Retea 2G :  GSM850, GSM900, DCS1800,PCS1900","RETEA: 5G","Sistem de operare: Android","Procesor: Exynos 1280"}', False, 'Samsung Galaxy A35.jpg'),
+('Samsung Galaxy A55', 'Telefon SAMSUNG Galaxy A55 5G, 128GB, 8GB RAM, Dual SIM, Awesome Navy', 2000 , 128, 'Negru', 'Smartphone','Samsung','{"Sim: Nano SIM + eSIM","Retea 2G :  GSM850, GSM900, DCS1800,PCS1900","RETEA: 5G","Sistem de operare: Android","Procesor: Exinos 1480"}', False, 'Samsung Galaxy A.jpg'),
 
 ('Xiaomi 12X', 'Telefon XIAOMI 12X 5G, 128GB, 8GB RAM, Dual SIM, Blue', 2072.64 , 128, 'Blue', 'Smartphone','Xiaomi','{"Sim: Nano SIM","Retea 2G :  GSM850 900 1800 1900","RETEA: 5G","Sistem de operare: Android","Procesor:Snapdragon 870 7nm, Kryo 585 CPU pana la 3.2GHz"}', False, 'Xiaomi 12X.jpg'),
 ('Xiaomi Redmi Note 13', 'Telefon XIAOMI Redmi Note 13, 128GB, 6GB RAM, Dual Sim, Green', 880 , 128, 'Green', 'Smartphone','Xiaomi','{"Sim: Nano SIM","Retea 2G : 2,3,5,8","RETEA: 4G","Sistem de operare: Android","Procesor:Qualcomm Snapdragon 685 6nm"}', False, 'Xiaomi Redmi Note13.jpg'),

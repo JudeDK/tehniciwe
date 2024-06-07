@@ -40,6 +40,7 @@
 
 summary::before{
     display: inline-block;
+    background-image: url('../imagini/icon-prajitura-mini.png');
     background-position:center center;
     background-size: contain;
     background-repeat:no-repeat;

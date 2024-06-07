@@ -1,4 +1,3 @@
-
 window.addEventListener("load", function(){
 
     document.getElementById("inp-pret").onchange=function(){
@@ -10,27 +9,27 @@ window.addEventListener("load", function(){
     document.getElementById("filtrare").onclick= function(){
         var inpNume= document.getElementById("inp-nume").value.toLowerCase().trim();
 
-        var radioMemorie=document.getElementsByName("gr_rad")
-        let inpMemorie;
-        for (let rad of radioMemorie){
+        var radioMemorii=document.getElementsByName("gr_rad")
+        let inpMemorii;
+        for (let rad of radioMemorii){
             if (rad.checked){
-                inpMemorie=rad.value;
+                inpMemorii=rad.value;
                 break;
             }
         }
-        let minMemorie, maxMemorie
-        if (inpMemorie!="toate"){
-            vMem=inpMemorie.split(":")
-            minMemorie=parseInt(vCal[0])
-            maxMemorie=parseInt(vCal[1])
+        let minMemorii, maxMemorii
+        if (inpMemorii!="toate"){
+            vCal=inpMemorii.split(":")
+            minMemorii=parseInt(vCal[0])
+            maxMemorii=parseInt(vCal[1])
         }
 
 
         var inpPret= parseInt(document.getElementById("inp-pret").value);
 
-        var inpCateg=document.getElementById("inp-categorie").value.toLowerCase().trim()
+        var inpBr=document.getElementById("inp-brand").value.toLowerCase().trim()
 
-        
+
         var produse=document.getElementsByClassName("produs");
         for (let produs of produse){
 
@@ -39,9 +38,9 @@ window.addEventListener("load", function(){
             let cond1= valNume.startsWith(inpNume)
 
 
-            let valMemorie = parseInt(produs.getElementsByClassName("val-memorie")[0].innerHTML)
+            let valMemorii = parseInt(produs.getElementsByClassName("val-memorie")[0].innerHTML)
 
-            let cond2=(inpMemorie=="toate" || (minMemorie<= valMemorie && valMemorie < maxMemorie));
+            let cond2=(inpMemorii=="toate" || (minMemorii<= valMemorii && valMemorii < maxMemorii));
 
             let valPret = parseFloat(produs.getElementsByClassName("val-pret")[0].innerHTML)
             let cond3=(valPret>inpPret)
@@ -130,5 +129,6 @@ window.addEventListener("load", function(){
 
         }
     }
+
 
 })

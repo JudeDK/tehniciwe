@@ -1,4 +1,3 @@
-
 mesaje={
   200:"Nici 200 calorii? Serios? Dar, ce? sunteți la dieta?",
   500:"Ok, o prăjitură care se repectă",

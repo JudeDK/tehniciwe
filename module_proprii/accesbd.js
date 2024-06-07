@@ -36,7 +36,7 @@ class AccesBD{
 
     getClient(){
         if(!AccesBD.#instanta ){
-            throw new Error("Nu a fost instantiata clasa");
+            throw new Error("Nu a fost instantiata clasa"); // arunca eroare daca deja a fost definita instanta
         }
         return this.client;
     }
@@ -99,7 +99,7 @@ class AccesBD{
      * Selecteaza inregistrari din baza de date
      *
      * @param {ObiectQuerySelect} obj - un obiect cu datele pentru query
-     * @param {function} callback - o functie callback cu 2 parametri: eroare si rezultatul queryului
+     * @param {QueryCallBack} callback - o functie callback cu 2 parametri: eroare si rezultatul queryului
      */
     select({tabel="",campuri=[],conditiiAnd=[]} = {}, callback, parametriQuery=[]){
         let conditieWhere="";
@@ -221,6 +221,74 @@ class AccesBD{
 
     query(comanda, callback){
         this.client.query(comanda,callback);
+    }
+
+    static cauta(obparam, callback) {
+        AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd: Object.entries(obparam).filter(([_, value]) => value !== undefined).map(([key, value]) => `${key}='${value}'`)}, function(err, rezSelect){
+            if(err){
+                console.error("Eroare la căutarea utilizatorului:", err);
+                callback(err, []);
+            }
+            else{
+                callback(null, rezSelect.rows);
+            }
+        });
+    }
+    static async cautaAsync(obParam) {
+        try{
+            let rezSelect=await AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd: Object.entries(obparam).filter(([_, value]) => value !== undefined).map(([key, value]) => `${key}='${value}'`)});
+            return rezSelect ? rezSelect.rows : [];
+        }
+        catch(err){
+            console.error("Eroare la căutarea utilizatorului:", err);
+            return [];
+        }
+    }  
+
+    modifica({id, username, nume, prenume, email, parola, rol, culoare_chat="black", poza}={}){
+        AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd:[`username='${username}'`]}, function(err, rezSelect){
+            if(err){
+                console.error("Utilizator:", err);
+                eroare=-2;
+            }
+            else if(rezSelect.rowCount==0){
+                eroare=-1
+            }
+            else{
+                let updateData = {id, username, nume, prenume, email, parola, rol, culoare_chat, poza};
+                AccesBD.getInstanta(Utilizator.tipConexiune).updateParametrizat({tabel:"utilizatori",campuri:['*'],valori:updateData,conditiiAnd:[`username='${username}'`]}, function(err, rezUpdate){
+                    if(err){
+                        console.error("Eroare la actualizarea utilizatorului:", err);
+                        throw new Error("Eroare la actualizarea utilizatorului");
+                    }
+                    else{
+                        console.log("Utilizator actualizat cu succes");
+                    }
+                });
+            }
+        });
+    }
+    sterge(username){
+        AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd:[`username='${username}'`]}, function(err, rezSelect){
+            if(err){
+                console.error("Utilizator:", err);
+                eroare=-2;
+            }
+            else if(rezSelect.rowCount==0){
+                eroare=-1;
+            }
+            else{
+                AccesBD.getInstanta(Utilizator.tipConexiune).delete({tabel:"utilizatori",conditiiAnd:[`username='${username}'`]}, function(err, rezDelete){
+                    if(err){
+                        console.error("Eroare la stergerea utilizatorului:", err);
+                        throw new Error("Eroare la stergerea utilizatorului");
+                    }
+                    else{
+                        console.log("Utilizator șters cu succes");
+                    }
+                });
+            }
+        });
     }
 
 }

@@ -10,10 +10,7 @@
 /* acesta este stilul pentru ecran mare*/
 
 html{
-    /*am setat font-size-ul radacinii; unitatile in rem vor fi relative la acest font-size*/
     font-size:16px;
-    
-
 }
 
 body{
@@ -37,7 +34,6 @@ body{
     --body-padding:3rem;
 
     --padding-intern:4%;
-    color:var(--cl-text);
 
     background: 
     linear-gradient(to bottom, var(--culoare-inchisa), white 50%, transparent 50%),
@@ -132,83 +128,6 @@ body{
         }
        
 }
-
-figcaption{
-    text-align:center;
-}
-
-p.intro{
-    font-family: 'Dancing Script', cursive;
-    font-size:2rem;
-    /*text-align: justify;
-    text-align-last: justify;*/
-    font-weight: bold;
-}
-
-#dv-prezentare{
-    
-    mask-repeat: no-repeat;
-    /*mask-position:10% 0, 0 50%;*/
-    mask-size:100% 100%;
-   
-    mask-image: linear-gradient(transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(transparent, black 10%, black 90%, transparent);
-    background-attachment: fixed;
-}
-#dv-prezentare img{
-    width:100%;
-}
-
-#dv-prezentare-1{
-    float:right;
-    mask-image: linear-gradient(to left,transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to left,transparent, black 10%, black 90%, transparent);
-    width:35%;
-    
-}
-
-
-#welcome .anunt{
-    font-family: 'Dancing Script', cursive;
-    width:45%;
-    font-size:1.4rem;
-    float:left;
-    margin-top:0;
-}
-.intro-oferte{
-    display: flex;
-    min-height:50px;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-}
-.intro-oferte div{
-    border:1px solid grey;
-    width:7rem;
-    margin-right:2rem;
-    line-height:50px;
-
-    /*am folosit fontul din Google API*/
-    font-family: 'Dancing Script', cursive;
-    font-size:1.5rem;
-    text-align: center;
-}
-
-#produse section{
-    border-image:none;
-    border-width: 1px;
-    border-style:solid;
-    border-color:var(--culoare-roz-inchis);
-    border-radius:1.5rem;
-    margin-bottom:0.7rem;
-    box-shadow:0px 0px 7px 2px var(--culoare-roz-inchis);;
-}
-
-#retete{
-    
-  padding-left:var(--padding-intern);
-  padding-right:var(--padding-intern);
-}
-
 
 footer{
     background-color: var(--culoare-deschisa);
@@ -412,27 +331,32 @@ header{
   
 
 
-body.dark {
-    background-color: #00011f; 
-    color: #696880; /* Set the text color to white */
-    
+  body.dark {
+    background-color: darkblue; 
+    color: white; 
   
     padding-left: var(--spatiere);
     padding-right: var(--spatiere);
+  
+    /* Add gradient for the background */
+    background-image: linear-gradient(to bottom, var(--culoare-deschisa), darkblue); 
   }
   
-  /* You might also need to style specific elements */
-  body.dark h1,
-  body.dark p,
-  body.dark ul,
-  body.dark li,
-  body.dark a {
+ 
+
+  
+  body.dark footer,
+  body.dark header,
+  body.dark body,
+  body.dark nav > *,
+  body.dark #grid-pagina > *{
     color:white; /* Set the text color to white for these elements */
+    background-color:var(--culoare-inchisa);
   }
-  
-  body.dark nav a {
-    color: rgb(255, 255, 255); /* Set link color to purple */
+  body.dark nav a{
+    color:white;
   }
+
   
   /* Toggle Button Styles */
   .toggle-container {
@@ -477,6 +401,7 @@ body.dark {
   
   .toggle input:checked + .slider {
     background-color: black; /* Change background color for checked state */
+
   }
   
   .toggle input:checked + .slider:before {
@@ -507,26 +432,169 @@ body.dark {
   
   /* Dark Mode Styles */
   body.dark {
-  
-    color: #696880; /* Set the text color to white */
+    color: white; /* Set the text color to white */
   }
   
   body.dark a {
-    color: dark(215, 38, 215); /* Set link color to purple */
+    color:white; 
   }
   
   body.dark .toggle input:checked + .slider {
-    background-color: #777;
+    background-color: black;
   }
   
   body.dark .toggle input:checked + .slider:before {
-    background-color: #ccc;
+    background-color: white;
   }
   
   .val-nume a {
     color: purple;
   }
-  
+
+
+
+  .watermark {
+    display: always;
+}
+
+.banner {
+  position:fixed;
+  left:0;
+  bottom:0;
+  width:25%;
+  height: 25%;
+  background-color: var(--culoare-deschisa);
+  text-align:center;
+  font-size:1.5vw;
+  animation: animatiebanner 2s linear;
+  transform-origin: bottom left;
+  opacity:0.75;
+}
+@keyframes animatiebanner {
+  0%{
+    background: white;
+    opacity:0;
+    transform:scale(0);
+  }
+  100%{
+    background:var(--culoare-deschisa);
+    opacity:0.75;
+  }
+}
+
+@media screen and (max-width:800){
+    banner{
+      animation:none;}
+}
+@media screen and (max-width:1200px){
+  banner{
+    animation:none;}
+}
+
+
+
+@media print {
+    /*Bannerul */
+    .banner {
+        display: block;
+        width: 70%;
+        border: 4px inset black;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /*Sa nu se afiseze imagini videos link top nimic*/
+    img, video, nav, iframe, #link-top, figure, .container-iframe, .taburi-iframe {
+        display: none !important;
+        border: none !important;
+        border-color: none !important;
+    }
+
+    /*Gridul paginii să fie afisat ca block*/
+    #grid-pagina {
+        display: block;
+    }
+
+    /*Linkurile sa fie nu aiba nimic special*/
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /*Headingul de nivel 1 să fie centrat pe orizontală și page break dupa */
+    header h1 {
+        text-align: center;
+        font-size: 2.5em;
+        line-height: 1;
+    }
+
+    header h1::before {
+        content: "";
+        display: block;
+        border-bottom: 2px solid var(--culoare-negru);
+        margin-bottom: 0.5em;
+    }
+
+    header::after {
+        content: "";
+        display: block;
+        page-break-after: always;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+    /* break inainte de footer */
+    footer::before {
+        content: "";
+        display: block;
+        page-break-before: always;
+    }
+    
+
+    /*Adaugarea unui watermark pe fiecare pagina */
+    .watermark {
+        display: block;
+        width: 4cm;
+        height: 1cm;
+        border: 3px solid var(--culoare-text);
+        border-radius: 20px;
+        text-align: center;
+        font-weight: bold;
+        opacity: 1;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        padding-top: 0.3cm; /* Pentru a centra vertical textul */
+    }
+
+    @page {
+        margin: 2cm;
+        @top-left {
+            margin-left: 3cm;
+            margin-right: 1cm;
+        }
+        @top-right {
+            margin-left: 1cm;
+            margin-right: 3cm;
+        }
+    }
+}
+
+
+
   /*text reflectat*/
 #container {
     position: relative;
@@ -607,7 +675,40 @@ body.dark {
     mix-blend-mode: lighten;
 }
 
+.cautare{
+  margin-top: 50px;
+}
+
+.imaginigalerie:hover {
+  filter: contrast(200%);
+
+}
+
+.textgalerie {
+  font-size: 16px;
+  transition: all 1.1s ease;
+}
+.imaginigalerie:hover+ .textgalerie {
+  font-size: 20px;
+}
+
+.carousel-item{
+  height: 35rem;
+}
+.carousel-caption{
+  margin-bottom:15px;
+  height:5rem;
+  background:black;
+  position:absolute;
+}
+
+.d-block{
+  opacity:0.8;
+  filter:contrast(50%);
+}
+
 input.login{
   width:140px;
 }
+
 

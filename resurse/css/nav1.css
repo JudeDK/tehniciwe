@@ -5,28 +5,27 @@ nav {
   height: var(--inaltime-meniu);
   background-color: var(--culoare1);
   color: white;
-  outline: 2px solid var(--culoare4);
+  outline: 3px solid var(--culoare-text);
+  margin-bottom: 5px;
+  /* animatie meniu */
+  /* animatie meniu */
 }
-
-#hamburger,
-#ch-menu {
+nav #hamburger,
+nav #ch-menu {
   display: none;
 }
-
-#acasa-mediu {
+nav #acasa-mediu {
   display: none;
 }
-
-.meniu,
-.meniu ul {
+nav .meniu,
+nav .meniu ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
   background-color: var(--culoare-deschisa);
 }
-
-.meniu li div,
-.meniu li a {
+nav .meniu li div,
+nav .meniu li a {
   display: block;
   width: 100%;
   height: 100%;
@@ -37,26 +36,23 @@ nav {
   box-sizing: border-box;
   transition: all 1s linear;
 }
-
-.meniu li:hover > ul {
+nav .meniu li:hover > ul {
   display: block;
   position: absolute;
   z-index: 100;
   animation: animatie_submeniu 300ms linear 1 forwards;
 }
-
-/* animatie meniu*/
-.meniu {
+nav .meniu {
   display: flex;
 }
-.meniu li {
+nav .meniu li {
   position: relative;
   width: var(--latime-buton);
   height: var(--inaltime-meniu);
   text-align: center;
   box-sizing: border-box;
 }
-.meniu li div, .meniu li a {
+nav .meniu li div, nav .meniu li a {
   display: block;
   width: 100%;
   height: 100%;
@@ -67,9 +63,7 @@ nav {
   box-sizing: border-box;
   transition: all 1s linear;
 }
-
-/* animatie meniu */
-ul.meniu > li > a:before {
+nav ul.meniu > li > a:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -81,14 +75,12 @@ ul.meniu > li > a:before {
   transform: scaleX(0); /* Inițial, gradientul are lățimea 0 */
   transform-origin: right; /* Punctul de origine al transformării */
 }
-
-ul.meniu > li > a:hover:before {
+nav ul.meniu > li > a:hover:before {
   transform: scaleX(1); /* La hover, gradientul se extinde complet */
   transition: transform 0.4s ease; /* Adăugăm tranziția pentru a face animația mai fină */
   transform-origin: right; /* Schimbăm punctul de origine pentru a avea efectul dorit */
 }
 
-/* ... your existing styles ... */
 /*submeniu*/
 .meniu ul {
   background-color: var(--culoare1);

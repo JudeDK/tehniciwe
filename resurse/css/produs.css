@@ -6,7 +6,7 @@ h2{
     width:70%;
     max-width:700px;
     background-color: var(--cl-light-t);
-    box-shadow: 0px 0px 10px 5px grey;
+    box-shadow: 0px 0px 10px 5px black;
     padding:0.4rem;
 }
 
@@ -21,7 +21,7 @@ h2{
     font-weight: normal;
 }
 #art-produs p:nth-of-type(even){
-    background-color: var(--culoare-roz-inchis);
+    background-color: var(--cu);
 }
 #art-produs p:nth-of-type(odd){
     background-color: var(--cl-marcare);

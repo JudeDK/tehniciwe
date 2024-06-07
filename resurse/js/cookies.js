@@ -1,6 +1,3 @@
-
-
-//setCookie("a",10, 1000)
 function setCookie(nume, val, timpExpirare){//timpExpirare in milisecunde
     d=new Date();
     d.setTime(d.getTime()+timpExpirare)
@@ -21,14 +18,25 @@ function deleteCookie(nume){
     document.cookie=`${nume}=0; expires=${(new Date()).toUTCString()}`;
 }
 
+function deleteAllCookie(nume){
+    document.cookie=`${"acceptat_banner"}=0; expires=${(new Date()).toUTCString()}`;
+    document.cookie=`${"ultima_pagina"}=0; expires=${(new Date()).toUTCString()}`;
+}
+
 
 window.addEventListener("load", function(){
     if (getCookie("acceptat_banner")){
-        document.getElementById("banner").style.display="none";
+        document.getElementById("bannercookie").style.display="none";
     }
 
     this.document.getElementById("ok_cookies").onclick=function(){
-        setCookie("acceptat_banner",true,60000);
-        document.getElementById("banner").style.display="none"
+        setCookie("acceptat_banner",true,600);
+        document.getElementById("bannercookie").style.display="none"
+    }
+    const currentUrl = window.location.href;
+    setCookie("ultima_pagina", currentUrl,600);
+    const ultimaPagina = getCookie("ultima_pagina");
+    if (ultimaPagina) {
+        document.getElementById("ultimapag").textContent = ultimaPagina;
     }
 })

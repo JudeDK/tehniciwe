@@ -9,15 +9,15 @@
         {
             "identificator":404,
             "status":true,
-            "titlu":"404 - N-am, bre!",
-            "text": "Nu-i pe serverul ăsta, sorry, caută în altă parte!",
+            "titlu":"404 - Nu exista!",
+            "text": "Nu s-a gasit nimic de acest fel pe acest site!",
             "imagine":"lupa.png"
         },
         {
             "identificator":403,
             "status":true,
-            "titlu":"403 - Da, tu ce cauți aici?!!",
-            "text": "Ai greșit ruta. Stânga-împrejur și pa!",
+            "titlu":"403 - Ia stai tu ai voie aici ?!",
+            "text": "Nu ai ce cauta aici pleaca",
             "imagine":"interzis.png"
         },
         {
@@ -32,7 +32,7 @@
             "identificator":1,
             "status":false,
             "titlu":"Site în lucru",
-            "text": "Muncim, muncim!",
+            "text": "Inca lucram la asta!",
             "imagine":"interzis.png"
         },
         
@@ -40,7 +40,7 @@
             "identificator":2,
             "status":false,
             "titlu":"Eroare baza date",
-            "text": "Reveniti mai tarziu!",
+            "text": "Momentan nu,dar o sa da!",
             "imagine":"interzis.png"
         },
         

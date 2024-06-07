@@ -18,7 +18,14 @@ const Drepturi = {
 	vizualizareUtilizatori: Symbol("vizualizareUtilizatori"),
 	stergereUtilizatori: Symbol("stergereUtilizatori"),
 	cumparareProduse: Symbol("cumparareProduse"),
-	vizualizareGrafice: Symbol("vizualizareGrafice")
+	vizualizareGrafice: Symbol("vizualizareGrafice"),
+	vizualizareProduse: Symbol("vizualizareproduse"),
+	vizualizareGalerie: Symbol("vizualizaregalerie"),
+	stergereProduse: Symbol("stergereproduse"),
+
+	
+
 }
 
 module.exports=Drepturi;
+

@@ -13,7 +13,7 @@
     <%- include("../fragmente/header") %>
 
     <main>
-        <label> Nume: <input type="text" id="inp-nume"></label>
+        <label id="cautare"> Nume: <input type="text" id="inp-nume"></label>
         <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
         <div> Memorie:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
             <p><label>Var1(memorie &lt; 150)
@@ -33,19 +33,18 @@
 
         <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="5000"> <span id="infoRange">(0)</span></label>
         <label>Select simplu:
-            <select id="inp-categorie">
+            <select class="btn-custom1" id="inp-brand">
                 <option id="sel-toate" selected value="toate">toate</option>
                 <% for (let opt of locals.optiuni) { %>
                     <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
                 <% } %>
             </select>
         </label>
-
         <p>
-        <button id="filtrare">Filtreaza</button> 
-        <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
+        <button class="btn-custom1" id="filtrare">Filtreaza</button> 
+        <button class="btn-custom1" id="resetare">Reseteaza</button><br/>
+        <button class="btn-custom1" id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
+        <button class="btn-custom1" id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
         
         </p>
         
@@ -59,7 +58,7 @@
                         <div class="info-prod">
                             <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
                             <p class="memorie">Memorie: <span class="val-memorie"><%- prod.memorie%></span></p>
-                            <p class="culoare">Culoare: <span class="val-culoare"><%- prod.culoare%></span></p>
+                            <p class="culoare">Culoare: <span class="val-culoare"><%- prod.culori%></span></p>
                         </div>
                         <p class="categorie">Categorie:<span class="val-brand"><%- prod.brand%></span></p>
                         <figure>

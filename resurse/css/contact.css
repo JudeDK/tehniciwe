@@ -1,10 +1,10 @@
 .mesaj-c{
-    background:var(--cl-light-t);
+    background:lightblue;
     margin-left:var(--padding-intern);
     min-height:5rem;
 }
 .mesaj-c h3{
-    background:var(--culoare-roz-inchis);
+    background:darkblue;
     padding-left:1rem;
 }
 .mesaj-c p{

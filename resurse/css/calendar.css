@@ -11,3 +11,7 @@
 #calendar div:nth-child(n+8).eveniment{
     background-color: var(--culoare-mov);
 }
+
+.container-calendar{
+    width:200px;
+}
